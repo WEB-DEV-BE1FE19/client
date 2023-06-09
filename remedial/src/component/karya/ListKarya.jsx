@@ -2,9 +2,9 @@ import { useState } from "react";
 
 const ListKarya = () => {
   const [karya, setKarya] = useState([
-    { image: "https://awsimages.detik.net.id/community/media/visual/2022/08/24/teknik-aquarel-3.jpeg?w=1280", judul: "Belajar Melukis Cat Air Menggunakan Teknik Aquarel", kategori: "Melukis", pembuat: "Raihan Renara" },
-    { image: "https://awsimages.detik.net.id/community/media/visual/2022/08/24/teknik-aquarel-3.jpeg?w=1280", judul: "Belajar Melukis Cat Air Menggunakan Teknik Aquarel", kategori: "Melukis", pembuat: "Raihan Renara" },
-    { image: "https://awsimages.detik.net.id/community/media/visual/2022/08/24/teknik-aquarel-3.jpeg?w=1280", judul: "Belajar Melukis Cat Air Menggunakan Teknik Aquarel", kategori: "Melukis", pembuat: "Raihan Renara" },
+    { image: "https://img.lovepik.com/photo/40011/5436.jpg_wh860.jpg", judul: "Belajar Melukis Cat Air Menggunakan Teknik Aquarel", kategori: "Melukis", pembuat: "Raihan Renara" },
+    { image: "https://img.lovepik.com/photo/40011/5436.jpg_wh860.jpg", judul: "Belajar Melukis Cat Air Menggunakan Teknik Aquarel", kategori: "Melukis", pembuat: "Raihan Renara" },
+    { image: "https://img.lovepik.com/photo/40011/5436.jpg_wh860.jpg", judul: "Belajar Melukis Cat Air Menggunakan Teknik Aquarel", kategori: "Melukis", pembuat: "Raihan Renara" },
   ]);
   return (
     <>

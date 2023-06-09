@@ -3,13 +3,13 @@ import { useState } from "react";
 const ListBerita = () => {
   const [berita, setBerita] = useState([
     {
-      image: "https://awsimages.detik.net.id/community/media/visual/2022/08/24/teknik-aquarel-3.jpeg?w=1280",
+      image: "https://cdnwpedutorenews.gramedia.net/wp-content/uploads/2022/06/30151840/image001-22.jpg",
       judul: "Penting Menguasai Sketchup Bagi Siswa",
       rilis: "24 juli 2019",
       isi: "Sketchup merupakan program aplikasi membuat bentuk tiga dimensi. Tim arthandling atau perancang teknis pemasangan karya seringkali memanfaatkan ....",
     },
     {
-      image: "https://awsimages.detik.net.id/community/media/visual/2022/08/24/teknik-aquarel-3.jpeg?w=1280",
+      image: "https://cdnwpedutorenews.gramedia.net/wp-content/uploads/2022/06/30151840/image001-22.jpg",
       judul: "Penting Menguasai Sketchup Bagi Siswa",
       rilis: "24 juli 2019",
       isi: "Sketchup merupakan program aplikasi membuat bentuk tiga dimensi. Tim arthandling atau perancang teknis pemasangan karya seringkali memanfaatkan ....",
