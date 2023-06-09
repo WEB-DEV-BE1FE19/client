@@ -1,0 +1,72 @@
+/* header landing page */
+.wp-back-img {
+  background-image: url("../images/background.png");
+}
+
+.wp-header {
+  max-width: 80%;
+}
+
+.wp-header-img img {
+  width: 60%;
+}
+
+/* kelas */
+.row {
+  height: 85vh;
+}
+
+.wp-text {
+  margin-top: 25%;
+}
+.wp-img img {
+  height: 500px;
+  width: 700px;
+}
+
+/*list kelas*/
+.card {
+  width: 25%;
+}
+
+.list-kelas {
+  display: flex;
+  gap: 10px;
+}
+
+/* list karya*/
+.card-karya {
+  width: 25%;
+}
+
+.card-karya img {
+  width: 100%;
+  height: 60%;
+}
+.card-body-karya {
+  max-width: 90%;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+/* berita*/
+.wp-text-berita {
+  margin-left: 10%;
+  margin-top: 50px;
+}
+
+.card-berita {
+  width: 40%;
+}
+
+.card-berita img {
+  width: 50%;
+}
+
+/* tentang kami */
+.wrapper-tentang {
+  margin: 50px auto;
+  width: 60%;
+  padding: 10px;
+  font-size: 16pt;
+}
