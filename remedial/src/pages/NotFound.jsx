@@ -1,7 +1,21 @@
 const NotFound = () => {
   return (
     <>
-      <h1>ini NotFound</h1>;
+      <section
+        style={{
+          width: "100%",
+          height: "100vh",
+          backgroundColor: "#252525",
+          position: "relative",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <div>
+          <h1 style={{ color: "#fff" }}>404 Not Found</h1>
+        </div>
+      </section>
     </>
   );
 };

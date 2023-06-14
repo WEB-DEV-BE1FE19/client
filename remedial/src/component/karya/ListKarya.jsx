@@ -1,30 +1,70 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const ListKarya = () => {
-  const [karya, setKarya] = useState([
-    { image: "https://img.lovepik.com/photo/40011/5436.jpg_wh860.jpg", judul: "Belajar Melukis Cat Air Menggunakan Teknik Aquarel", kategori: "Melukis", pembuat: "Raihan Renara" },
-    { image: "https://img.lovepik.com/photo/40011/5436.jpg_wh860.jpg", judul: "Belajar Melukis Cat Air Menggunakan Teknik Aquarel", kategori: "Melukis", pembuat: "Raihan Renara" },
-    { image: "https://img.lovepik.com/photo/40011/5436.jpg_wh860.jpg", judul: "Belajar Melukis Cat Air Menggunakan Teknik Aquarel", kategori: "Melukis", pembuat: "Raihan Renara" },
-  ]);
+  // const [karya, setKarya] = useState([
+  //   { image: "https://img.lovepik.com/photo/40011/5436.jpg_wh860.jpg", judul: "Belajar Melukis Cat Air Menggunakan Teknik Aquarel", kategori: "Melukis", pembuat: "Raihan Renara" },
+  //   { image: "https://img.lovepik.com/photo/40011/5436.jpg_wh860.jpg", judul: "Belajar Melukis Cat Air Menggunakan Teknik Aquarel", kategori: "Melukis", pembuat: "Raihan Renara" },
+  //   { image: "https://img.lovepik.com/photo/40011/5436.jpg_wh860.jpg", judul: "Belajar Melukis Cat Air Menggunakan Teknik Aquarel", kategori: "Melukis", pembuat: "Raihan Renara" },
+  // ]);
+  const [karya, setKarya] = useState([]);
+  useEffect(() => {
+    axios({
+      url: "https://remedial-production.up.railway.app/karya",
+      method: "get",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((result) => {
+        console.log(result.data);
+        setKarya(result.data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
   return (
     <>
-      <section className="list-kelas d-flex justify-content-center">
-        {karya.map((item, index) => (
-          <div className="card-karya m-3" key={index}>
-            <img src={item.image} alt="" />
-            <div className="card-body-karya">
-              <p className="card-text">
-                <small className="text-body-secondary fs-6">{item.kategori}</small>
-              </p>
-              <h5 className="card-title mb-4">{item.judul}</h5>
-
-              <p className="">
-                oleh <b>{item.pembuat}</b>
-              </p>
+      {karya.map((data, index) => {
+        return (
+          <div className="mb-4 col-12 col-sm-12 col-md-6 col-lg-4" key={index}>
+            <div className="card" style={{ height: "330px", width:'100%' }}>
+              <img src={data.gambar_karya} className="card-img" style={{ height: "100%" }} alt="..."/>
+              <div className="card-img-overlay" style={{ backgroundColor:'rgba(0, 0, 0, 0.7)', maxWidth: "350px", height: "200px" , color:'white', marginTop:'25%', marginLeft:'7%' }}>
+                <h5 className="card-title" >{data.judul_karya}</h5>
+                <p className="card-text">{data.deskripsi_karya}</p>
+                <p className="card-text">
+                  <small>rilis 15 juni 2023</small>
+                </p>
+              </div>
             </div>
           </div>
-        ))}
-      </section>
+        );
+      })}
+
+      {/* {karya.map((data, index) => {
+        return (
+          <div className="mb-4 col-12 col-sm-12 col-md-6 col-lg-4" key={index}>
+            <div className="card mb-3" style={{ maxWidth: "540px" }}>
+              <div className="row g-0">
+                <div className="col-md-4">
+                  <img src={data.gambar_karya} className="img-fluid rounded-start" alt="..." style={{ height: "100%" }} />
+                </div>
+                <div className="col-md-8">
+                  <div className="card-body">
+                    <h5 className="card-title ">{data.judul_karya}</h5>
+                    <div style={{ overflow: "hidden", height: "100px" }}>
+                      <p className="card-text ">{data.deskripsi_karya}</p>
+                    </div>
+                    <p className="card-text">
+                      <small className="text-body-secondary">rilis 15 juni 2023</small>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      })} */}
     </>
   );
 };

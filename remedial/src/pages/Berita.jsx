@@ -1,18 +1,20 @@
 import ListBerita from "../component/berita/ListBerita";
+import MainLayouts from "../layouts/MainLayouts";
 
 const Berita = () => {
+  function scrollWin() {
+    window.scrollTo(0, 0);
+  }
+  scrollWin();
   return (
     <>
-      <div className="wrapper-berita">
-        <div className="wp-text-berita w-25 p-3">
-          <h1>ini berita</h1>;
-        </div>
-      </div>
-
-      <ListBerita />
-      <ListBerita />
-      <ListBerita />
-      
+      <MainLayouts>
+        <section className="container" style={{ height: "100vh", marginTop: "100px" }}>
+          <div className="row py-4">
+            <ListBerita />
+          </div>
+        </section>
+      </MainLayouts>
     </>
   );
 };

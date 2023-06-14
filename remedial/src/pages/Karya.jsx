@@ -1,16 +1,21 @@
 import ListKarya from "../component/karya/ListKarya";
+import { Link } from "react-router-dom";
+import MainLayouts from "../layouts/MainLayouts";
 
 const Karya = () => {
+  function scrollWin() {
+    window.scrollTo(0, 0);
+  }
+  scrollWin();
   return (
     <>
-      <div className="wrapper-berita">
-        <div className="wp-text-berita w-25 p-3">
-          <h1>ini Karya</h1>;
-        </div>
-      </div>
-      <ListKarya />
-      <ListKarya />
-      <ListKarya />
+      <MainLayouts>
+        <section className="container" style={{ height: "150vh", marginTop: "100px" }}>
+          <div className="row py-4">
+            <ListKarya />
+          </div>
+        </section>
+      </MainLayouts>
     </>
   );
 };

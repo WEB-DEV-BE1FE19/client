@@ -1,3 +1,13 @@
+/* login */
+
+/* navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+}
+
 /* header landing page */
 .wp-back-img {
   background-image: url("../images/background.png");
@@ -11,28 +21,29 @@
   width: 60%;
 }
 
-/* kelas */
-.row {
-  height: 85vh;
+.row-header {
+  height: 100vh;
 }
 
-.wp-text {
-  margin-top: 25%;
+/* kelas */
+.row-kelas {
+  height: 100vh;
 }
+
 .wp-img img {
   height: 500px;
   width: 700px;
 }
 
 /*list kelas*/
-.card {
+/* .card {
   width: 25%;
 }
 
 .list-kelas {
   display: flex;
   gap: 10px;
-}
+} */
 
 /* list karya*/
 .card-karya {
@@ -50,7 +61,7 @@
 }
 
 /* berita*/
-.wp-text-berita {
+/* .wp-text-berita {
   margin-left: 10%;
   margin-top: 50px;
 }
@@ -61,11 +72,11 @@
 
 .card-berita img {
   width: 50%;
-}
+} */
 
 /* tentang kami */
 .wrapper-tentang {
-  margin: 50px auto;
+  margin: 5% auto;
   width: 60%;
   padding: 10px;
   font-size: 16pt;

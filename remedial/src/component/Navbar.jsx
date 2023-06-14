@@ -1,46 +1,47 @@
-import { Link, Navigate } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/images/logo.png";
 const Navbar = () => {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar bg-dark" data-bs-theme="dark">
         <div className="container">
-          <a className="navbar-brand" href="#">
-            <Link to="/">
+          <span className="navbar-brand" href="#">
+            <NavLink to="/">
               <img src={logo} alt="Bootstrap" width="120" height="40" />
-            </Link>
-          </a>
+            </NavLink>
+          </span>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse ms-5" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-              <a className="nav-link active ms-5 me-3" aria-current="page" href="#">
-                <Link to="/kelas">Kelas</Link>
-              </a>
-              <a className="nav-link me-3" href="#">
-                <Link to="/karya">Karya</Link>
-              </a>
-              <a className="nav-link me-3" href="#">
-                <Link to="/berita">Berita</Link>
-              </a>
+              <NavLink className="nav-link ms-5 me-3" to="/kelas">
+                Kelas
+              </NavLink>
 
-              <a className="nav-link me-3" href="#">
-                <Link to="/tentangkami">Tentang Kami</Link>
-              </a>
+              <NavLink className="nav-link me-3" to="/karya">
+                Karya
+              </NavLink>
+
+              <NavLink className="nav-link me-3" to="/berita">
+                Berita
+              </NavLink>
+
+              <NavLink className="nav-link me-3" to="/tentangkami">
+                Tentang Kami
+              </NavLink>
             </div>
           </div>
           <div className="wrapper-button p-1">
-            <a href="#">
-              <button className="btn btn-outline-success m-1">
-                <Link to="/daftar">Daftar</Link>
-              </button>
-            </a>
-            <a href="#">
-              <button className="btn btn-success m-1" type="submit">
-                <Link to="/masuk">Masuk</Link>
-              </button>
-            </a>
+            <span href="#">
+              <NavLink className="btn btn-outline-success m-1" to="/daftar">
+                Daftar
+              </NavLink>
+
+              <NavLink className="btn btn-success m-1" to="/masuk">
+                Masuk
+              </NavLink>
+            </span>
           </div>
         </div>
       </nav>
