@@ -4,7 +4,7 @@ const TentangKami = () => {
   return (
     <>
       <MainLayouts>
-        <div className="wrapper-tentang">
+        <div className="wrapper-tentang mt-5">
           <div className="tentang-kami">
             <h2>Apa Sih Remedial Itu?</h2>
             <p>
