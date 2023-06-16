@@ -7,6 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 import "./assets/bootstrap/css/bootstrap.min.css";
 import "./assets/bootstrap/js/bootstrap.bundle.min.js";
 import "./assets/css/style.css";
+import "./assets/css/DashCss.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
