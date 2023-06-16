@@ -7,13 +7,15 @@ const Header = () => {
 
   return (
     <>
-      <div className="wp-back-img row row-header mt-5">
+      <div className="wp-back-img row row-header">
         <div className="col-md-6 d-flex align-items-center justify-content-center">
           <div className="container d-flex align-items-center justify-content-end ">
             <div className="wp-header p-3 text-white">
               <h1 className="mb-4">REMEDIAL</h1>
               <h5 className="mb-4">Raih pengalaman berkarya dan tingkatkan keterampilanmu di bidang seni dengan bergabung bersama kami</h5>
-              <button onClick={() => scrollWin()} className="btn btn-success btn-lg mt-2">Lihat Kelas</button>
+              <button onClick={() => scrollWin()} className="btn btn-success btn-lg mt-2">
+                Lihat Kelas
+              </button>
             </div>
           </div>
         </div>

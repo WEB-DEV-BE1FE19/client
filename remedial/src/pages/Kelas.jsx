@@ -2,6 +2,7 @@ import img2 from "../assets/images/2.png";
 import ListKelas from "../component/kelas/ListKelas";
 import { Link } from "react-router-dom";
 import MainLayouts from "../layouts/MainLayouts";
+
 const Kelas = () => {
   function scrollWin() {
     window.scrollTo(0, 0);
@@ -16,7 +17,7 @@ const Kelas = () => {
     <>
       <MainLayouts>
         <section className="container" style={{ marginBottom: "30vh" }}>
-          <div className="row row-kelas mt-5 ">
+          <div className="row row-kelas">
             <div className="wrapper-title col-md-6 d-flex align-items-center">
               <div className="container ">
                 <div className="wp-text p-3 ">

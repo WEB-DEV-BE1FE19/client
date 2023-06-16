@@ -1,11 +1,11 @@
-import Navbar from "../component/Navbar";
+import NavLog from "../component/NavLog";
 import Footer from "../component/Footer";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 
 const DashboardLayout = ({ children }) => {
-  const store = useSelector((state) => state);
-  console.log(store);
+  // const store = useSelector((state) => state);
+  // console.log(store);
 
   // useEffect(() => {
   //   if (store.user.authStatus === false) window.location.href = "/masuk";
@@ -13,7 +13,7 @@ const DashboardLayout = ({ children }) => {
 
   return (
     <>
-      <Navbar />
+      <NavLog />
       {children}
       <Footer />
     </>

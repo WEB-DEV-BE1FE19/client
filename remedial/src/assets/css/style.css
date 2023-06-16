@@ -2,7 +2,7 @@
 
 /* navbar */
 .navbar {
-  position: fixed;
+  position: sticky;
   top: 0;
   z-index: 1;
   width: 100%;
@@ -76,7 +76,7 @@
 
 /* tentang kami */
 .wrapper-tentang {
-  margin: 5% auto;
+  margin: auto;
   width: 60%;
   padding: 10px;
   font-size: 16pt;

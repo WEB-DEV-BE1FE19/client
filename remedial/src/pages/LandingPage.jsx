@@ -10,11 +10,10 @@ const LandingPage = () => {
     <>
       <MainLayouts>
         <Header />
-
         <section className="container" style={{ marginBottom: "25vh", marginTop: "10vh" }}>
           <div className="d-flex justify-content-between">
             <h1>Kelas Seni</h1>
-            <div className=""  >
+            <div className="">
               <Link to="/kelas" className="btn btn-success btn-lg">
                 Lihat Semua
               </Link>
@@ -28,7 +27,7 @@ const LandingPage = () => {
         <section className="container" style={{ marginBottom: "25vh" }}>
           <div className="d-flex justify-content-between">
             <h1>Karya Siswa</h1>
-            <div className="" >
+            <div className="">
               <Link to="/karya" className="btn btn-success btn-lg">
                 Lihat Semua
               </Link>
@@ -42,7 +41,7 @@ const LandingPage = () => {
         <section className="container" style={{ marginBottom: "25vh" }}>
           <div className="d-flex justify-content-between">
             <h1>Berita Siswa</h1>
-            <div className="" >
+            <div className="">
               <Link to="/berita" className="btn btn-success btn-lg">
                 Lihat Semua
               </Link>

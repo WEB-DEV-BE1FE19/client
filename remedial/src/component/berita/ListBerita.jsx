@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const ListBerita = () => {
   // const [berita, setBerita] = useState([
@@ -16,6 +17,7 @@ const ListBerita = () => {
   //     isi: "Sketchup merupakan program aplikasi membuat bentuk tiga dimensi. Tim arthandling atau perancang teknis pemasangan karya seringkali memanfaatkan ....",
   //   },
   // ]);
+  const navigate = useNavigate();
   const [berita, setBerita] = useState([]);
   useEffect(() => {
     axios({
@@ -31,24 +33,29 @@ const ListBerita = () => {
       })
       .catch((error) => console.log(error));
   }, []);
+
+  const handleGoToDetail = (id) => {
+    navigate(`/berita/${id}`);
+  };
+
   return (
     <>
       {berita.map((data, index) => {
         return (
           <div className="mb-4 col-12 col-sm-12 col-md-6 col-lg-6" key={index}>
             <div className="card mb-3" style={{ Width: "100%" }}>
-              <div className="row g-0">
+              <div className="row p-3">
                 <div className="col-md-5">
                   <img src={data.gambar_berita} className="img-fluid rounded-start" alt="..." style={{ height: "100%" }} />
                 </div>
                 <div className="col-md-7">
-                  <div className="card-body">
+                  <div className="card-body" onClick={() => handleGoToDetail(data.id)}>
                     <h5 className="card-title ">{data.judul_berita}</h5>
                     <div style={{ overflow: "hidden", height: "100px" }}>
                       <p className="card-text ">{data.deskripsi_berita}</p>
                     </div>
                     <p className="card-text">
-                      <small className="text-body-secondary">rilis 15 juni 2023</small>
+                      <small className="text-body-secondary">{data.createdAt.slice(0, 10).split("-").reverse().join("-")}</small>
                     </p>
                   </div>
                 </div>
