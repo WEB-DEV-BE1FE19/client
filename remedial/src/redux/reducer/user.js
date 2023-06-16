@@ -1,20 +1,42 @@
 import { createSlice } from "@reduxjs/toolkit";
+import Cookies from "universal-cookie";
+const ToolCookies = new Cookies();
 
-export const counterSlice = createSlice({
-  name: "counter",
+let getStatusAuth = ToolCookies.get("status_login");
+let getDataAuth = ToolCookies.get("user_data");
+
+export const userSlice = createSlice({
+  name: "user",
   initialState: {
-    userData: null,
-    token: null,
-    authStatus: false,
+    authStatus: getStatusAuth ? true : false,
+    userData: getDataAuth ? getDataAuth : null,
+    token: null, // duration 1 day
+    refreshToken: "", // duration 1 month
+
+    // userData: null,
+    // token: null,
+    // authStatus: false,
   },
   reducers: {
-    incrementByAmount: (state, action) => {
-      state.value += action.payload;
+    setAuthStatus: (state, action) => {
+      state.authStatus += action.payload;
+    },
+
+    setUserData: (state, action) => {
+      state.userData = action.payload;
+    },
+
+    setToken: (state, action) => {
+      state.token = action.payload;
+    },
+
+    setRefreshToken: (state, action) => {
+      state.refreshToken = action.payload;
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+export const { setAuthStatus, setUserData, setToken, setRefreshToken } = userSlice.actions;
 
-export default counterSlice.reducer;
+export default userSlice.reducer;

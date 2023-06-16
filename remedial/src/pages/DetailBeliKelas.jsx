@@ -1,10 +1,12 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import ReactPlayer from "react-player";
 
 import MainLayouts from "../layouts/MainLayouts";
 
-const DetailKelas = () => {
+const DetailBeliKelas = () => {
   function scrollWin() {
     window.scrollTo(0, 0);
   }
@@ -31,31 +33,6 @@ const DetailKelas = () => {
       .catch((error) => console.log(error));
   }, [id]);
 
-  const [data, setData] = useState(null);
-  useEffect(() => {
-    const storeData = localStorage.getItem("token");
-    setData(storeData);
-  }, []);
-
-  // const handleBeli = () => {};
-
-  // if (typeof Storage !== "undefined") {
-  //   let token = localStorage.getItem("token");
-
-  //   if (token) {
-  //     axios({
-  //       url: `https://remedial-production.up.railway.app/kelas/${id}`,
-  //       method: "post",
-  //       headers: {
-  //         "token": token,
-  //       },
-  //     });
-  //   } else {
-  //     // window.location.href = "/masuk";
-  //     console.log("belum login");
-  //   }
-  // }
-
   return (
     <>
       {/* <div>
@@ -76,9 +53,8 @@ const DetailKelas = () => {
                 <h3>Tentang Kelas</h3>
                 <p>{kelas.deskripsi_kelas}</p>
               </div>
-
               <div className="row">
-                <div className="col-6 h-auto">
+                <div className="col-6">
                   <div className="border rounded p-4">
                     <div className="mb-5 w-75 ">
                       <h3>Yang Akan Dipelajari</h3>
@@ -94,7 +70,7 @@ const DetailKelas = () => {
                     })}
                   </div>
                 </div>
-                <div className="col-6 row justify-content-end mb-5">
+                <div className="col-6 row justify-content-end">
                   <div className="p-4 rounded border h-auto" style={{ width: "60%" }}>
                     <div className="mb-3 p-3">
                       <h3>Mentor</h3>
@@ -106,32 +82,51 @@ const DetailKelas = () => {
                       <span>{kelas.mentor_kelas}</span>
                     </div>
                   </div>
-                  <div className="mt-3" style={{ width: "60%" }}>
-                    <button
-                      onClick={() => {
-                        if (data) {
-                          console.log("bisa beli");
-                          axios({
-                            url: `https://remedial-production.up.railway.app/kelas/${id}`,
-                            method: "post",
-                            headers: {
-                              token: localStorage.getItem("token"),
-                            },
-                          });
-                          window.location.href = `/kelas/${id}/materi`;
-                        } else {
-                          console.log("blm bisa beli");
-                          window.location.href = "/masuk";
-                        }
-                      }}
-                      className="btn btn-success w-100 p-2"
-                    >
-                      Gabung Kelas
-                    </button>
-                  </div>
                 </div>
               </div>
             </div>
+          </div>
+          <div className="p-4 border rounded">
+            <div className="mb-5">
+              <h3>Materi </h3>
+            </div>
+            {materi.map((data, index) => {
+              return (
+                <div className="accordion" id="accordionExample" style={{ zIndex: "-1" }}>
+                  <div className="accordion-item">
+                    <h2 className="accordion-header">
+                      <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <span>
+                          <strong>Materi {index + 1} :</strong> {data.judul_materi}
+                        </span>
+                      </button>
+                    </h2>
+                    <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                      <div className="accordion-body">
+                        <div className="container">
+                          <div className="row">
+                            <div className="col text-center">
+                              <center>
+                                <div className="wrapper-img-berita mb-3">
+                                  <ReactPlayer url={data.video_materi} className="w-50" style={{ height: "200px" }} />
+                                </div>
+                              </center>
+
+                              <div className="wrapper-judul-berita mb-4">
+                                <h1>{data.judul_materi}</h1>
+                              </div>
+                              <div className="wrapper-text-berita mb-5" style={{ textAlign: "justify" }}>
+                                <span>{data.deskripsi_materi}</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </MainLayouts>
@@ -139,4 +134,4 @@ const DetailKelas = () => {
   );
 };
 
-export default DetailKelas;
+export default DetailBeliKelas;

@@ -1,8 +1,16 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import logo from "../assets/images/logo.png";
 import { useState } from "react";
+import LandingPage from "../pages/LandingPage";
 
-const Navbar = () => {
+const NavLog = () => {
+  let namaLengkap = localStorage.getItem("nama_lengkap");
+
+  const handleLogout = () => {
+    localStorage.clear();
+    window.location.href = "/";
+  };
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar bg-dark" data-bs-theme="dark">
@@ -34,16 +42,30 @@ const Navbar = () => {
               </NavLink>
             </div>
           </div>
-          <div className="wrapper-button p-1 ">
-            <span href="#">
-              <NavLink className="btn btn-outline-success m-1" to="/daftar">
-                Daftar
-              </NavLink>
-
-              <NavLink className="btn btn-success m-1" to="/masuk">
-                Masuk
-              </NavLink>
-            </span>
+          <div className="wrapper-button p-1">
+            <div className="btn-group me-5">
+              <button type="button" className="btn btn-secondary">
+                {namaLengkap}
+              </button>
+              <button type="button" className="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                <span className="visually-hidden">Toggle Dropdown</span>
+              </button>
+              <ul className="dropdown-menu">
+                <li>
+                  <Link style={{ color: "white", textDecoration: "none", paddingLeft:'10%' }} to="/dashboard">
+                    Dashboard
+                  </Link>
+                </li>
+                <li>
+                  <hr className="dropdown-divider" />
+                </li>
+                <li>
+                  <button className="dropdown-item" onClick={handleLogout}>
+                    Logout
+                  </button>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </nav>
@@ -51,4 +73,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavLog;

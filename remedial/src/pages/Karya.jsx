@@ -10,7 +10,7 @@ const Karya = () => {
   return (
     <>
       <MainLayouts>
-        <section className="container" style={{ height: "150vh", marginTop: "100px" }}>
+        <section className="container" style={{ height: "150vh", marginTop: "50px" }}>
           <div className="row py-4">
             <ListKarya />
           </div>

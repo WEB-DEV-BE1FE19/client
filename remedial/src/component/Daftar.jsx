@@ -1,7 +1,32 @@
 import { Link } from "react-router-dom";
 import img2 from "../assets/images/2.png";
+import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Daftar = () => {
+  const [values, setValues] = useState({
+    nama_lengkap: "",
+    email: "",
+    password: "",
+  });
+  const navigate = useNavigate();
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    axios
+      .post("https://remedial-production.up.railway.app/register", values)
+      // .then((res) => console.log(res))
+      // .then((err) => console.log(err));
+      .then((res) => {
+        if (res.data.data) {
+          navigate("/masuk");
+          console.log(res);
+        } else {
+          alert("Error");
+        }
+      });
+  };
+
   return (
     <>
       <div className="row bg-white" style={{ height: "100vh" }}>
@@ -14,21 +39,21 @@ const Daftar = () => {
               <h2>Daftar</h2>
               <p>Lengkapi form di bawah dengan menggunakan data Anda yang valid</p>
             </div>
-            <form id="formlogin" className="loginForm">
+            <form id="formlogin" className="loginForm" onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label className="form-label">Nama Lengkap</label>
-                <input type="text" className="form-control" id="nama" aria-describedby="emailHelp" />
+                <input onChange={(e) => setValues({ ...values, nama_lengkap: e.target.value })} type="text" className="form-control" id="nama" aria-describedby="emailHelp" />
               </div>
               <div className="mb-3">
                 <label className="form-label">Email address</label>
-                <input type="email" className="form-control" id="email" aria-describedby="emailHelp" />
+                <input onChange={(e) => setValues({ ...values, email: e.target.value })} type="email" className="form-control" id="email" aria-describedby="emailHelp" />
               </div>
               <div className="mb-3">
                 <label className="form-label">Password</label>
-                <input type="password" className="form-control" id="password" />
+                <input onChange={(e) => setValues({ ...values, password: e.target.value })} type="password" className="form-control" id="password" />
               </div>
-              <button type="submit" className="btn w-100 mb-2" style={{ background: "green", color: "white" }}>
-                Submit
+              <button type="submit" className="btn btn-success w-100 mb-2" style={{ color: "white" }}>
+                Daftar
               </button>
               <div className="text-center">
                 <span>

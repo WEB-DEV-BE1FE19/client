@@ -1,11 +1,12 @@
 import DashboardLayout from "../../layouts/DashboardLayout";
 
 const LandingDashboard = () => {
-  console.log("test");
   return (
     <>
       <DashboardLayout>
-      <h1 style={{ marginTop:'100px' }}>ini dashboard</h1>
+        <div style={{ height: "100vh" }}>
+          <h1>ini dashboard</h1>
+        </div>
       </DashboardLayout>
     </>
   );
